@@ -18,4 +18,4 @@
 
 ## ERD
 
-<iframe width="560" height="315" src='https://dbdiagram.io/embed/5eb0247d39d18f5553fea922'> </iframe>
+https://dbdiagram.io/d/5eb0247d39d18f5553fea922
