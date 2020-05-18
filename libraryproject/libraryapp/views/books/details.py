@@ -11,8 +11,8 @@ def get_book(book_id):
 
 @login_required
 def book_details(request, book_id):
+    book = get_book(book_id)
     if request.method == 'GET':
-        book = get_book(book_id)
 
         template = 'books/details.html'
         context = {
@@ -32,8 +32,8 @@ def book_details(request, book_id):
             "actual_method" in form_data
             and form_data["actual_method"] == "DELETE"
         ):
-            book_to_delete = get_book(book_id)
-            book_to_delete.delete()
+
+            book.delete()
 
             return redirect(reverse('libraryapp:books'))
 
@@ -42,15 +42,14 @@ def book_details(request, book_id):
             "actual_method" in form_data
             and form_data["actual_method"] == "PUT"
         ):
-            book_to_update = get_book(book_id)
 
-            book_to_update.title = form_data['title']
-            book_to_update.author = form_data['author']
-            book_to_update.isbn = form_data['isbn']
-            book_to_update.year_published = form_data['year_published']
-            book_to_update.publisher = form_data['publisher']
-            book_to_update.location_id = form_data['location']
+            book.title = form_data['title']
+            book.author = form_data['author']
+            book.isbn = form_data['isbn']
+            book.year_published = form_data['year_published']
+            book.publisher = form_data['publisher']
+            book.location_id = form_data['location']
 
-            book_to_update.save()
+            book.save()
 
-            return redirect(reverse('libraryapp:books'))
+            return redirect(reverse('libraryapp:book', args=[book.id]))

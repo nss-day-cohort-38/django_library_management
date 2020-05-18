@@ -43,4 +43,4 @@ def book_list(request):
         )
         
 
-        return redirect(reverse('libraryapp:books'))
+        return redirect(reverse('libraryapp:book', args=[new_book.id]))
