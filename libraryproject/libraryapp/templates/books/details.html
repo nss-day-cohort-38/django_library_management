@@ -8,8 +8,8 @@
         <div>Published in {{ book.year_published }}</div>
         <div>Publisher {{ book.publisher }}</div>
         <div>ISBN: {{ book.isbn }}</div>
-        <div>Located in the {{ book.location.title }}</div>
-        <div>Registered by {{ book.librarian.first_name }} {{ book.librarian.last_name }}</div>
+        <div>Located in the {{ book.location.name }}</div>
+        <div>Registered by {{ book.librarian.user.first_name }} {{ book.librarian.user.last_name }}</div>
     </section>
 
     <form action="{% url 'libraryapp:book' book.id %}" method="POST">

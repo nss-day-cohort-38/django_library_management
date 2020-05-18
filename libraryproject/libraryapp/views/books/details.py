@@ -47,7 +47,8 @@ def book_details(request, book_id):
             book_to_update.title = form_data['title']
             book_to_update.author = form_data['author']
             book_to_update.isbn = form_data['isbn']
-            book_to_update.year = form_data['year_published']
+            book_to_update.year_published = form_data['year_published']
+            book_to_update.publisher = form_data['publisher']
             book_to_update.location_id = form_data['location']
 
             book_to_update.save()
