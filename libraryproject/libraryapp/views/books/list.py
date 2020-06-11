@@ -40,7 +40,6 @@ def book_list(request):
             librarian_id = request.user.librarian.id,
             location_id = form_data['location'],
             publisher = form_data['publisher']
-        )
-        
+        )        
 
         return redirect(reverse('libraryapp:book', args=[new_book.id]))
